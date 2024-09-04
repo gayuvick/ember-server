@@ -9,10 +9,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors()); // Enable CORS if needed
 
-let tasks = [
-  { id: 1, type:'task', attributes:{description: 'Task 1', dueDate: '2024-09-01T00:00:00.000Z', completed: false }},
-  { id: 2, type:'task', attributes:{description: 'Task 2', dueDate: '2024-09-10T00:00:00.000Z', completed: true} }
-];
+let tasks = [];
 console.log('app running')
 // GET all tasks
 app.get('/api/tasks', (req, res) => {
