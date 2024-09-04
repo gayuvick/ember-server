@@ -21,6 +21,17 @@ console.log('coming to get request');
 
 });
 
+app.get('/api/tasks/:id', (req, res) => {
+  const taskId = req.params.id;
+  const task = tasks.find(t => t.id === taskId);
+  
+  if (task) {
+    res.json({ data: task });
+  } else {
+    res.status(404).json({ error: 'Task not found' });
+  }
+});
+
 // POST a new task
 app.post('/api/tasks', (req, res) => {
     console.log("coming for post?")
